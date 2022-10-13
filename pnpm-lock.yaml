@@ -3,6 +3,8 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/solid-js': ^1.2.0
   '@astrojs/tailwind': ^2.1.0
+  '@fontsource/atkinson-hyperlegible': ^4.5.10
+  '@fontsource/chivo': ^4.5.9
   astro: ^1.5.0
   solid-js: ^1.4.3
   tailwindcss: ^3.0.24
@@ -10,6 +12,8 @@ specifiers:
 dependencies:
   '@astrojs/solid-js': 1.2.0_solid-js@1.5.7
   '@astrojs/tailwind': 2.1.0_tailwindcss@3.1.8
+  '@fontsource/atkinson-hyperlegible': 4.5.10
+  '@fontsource/chivo': 4.5.9
   astro: 1.5.0
   solid-js: 1.5.7
   tailwindcss: 3.1.8
@@ -435,6 +439,14 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/atkinson-hyperlegible/4.5.10:
+    resolution: {integrity: sha512-UyKTkEGQnF5lbAYRIPCeAikkVgBPQ8n3ve/cdJX1tp0Kma3pe7cZOVESEK2oyTZqn7Jt3ZS51hbY7hR8u4dLXA==}
+    dev: false
+
+  /@fontsource/chivo/4.5.9:
+    resolution: {integrity: sha512-hgl4I+FwA3lsEmp+yy7oq3eSAOvDLc+VKntmGt9Oya506/8TOY2KKlIHnvwyWqcyWa9Q4KIWKC3x3qR9XBuQZw==}
+    dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
