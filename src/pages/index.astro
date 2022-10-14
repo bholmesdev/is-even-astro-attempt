@@ -1,4 +1,5 @@
 ---
+import HomeInput from "../components/HomeInput.astro";
 import Logo from "../components/Logo.astro";
 import Base from "../layouts/Base.astro";
 ---
@@ -8,19 +9,7 @@ import Base from "../layouts/Base.astro";
 		<div class="grid gap-8">
 			<Logo />
 			<h1 class="sr-only">Hey astro!</h1>
-			<form>
-				<input class="flex-1 px-5 py-3 border-slate-400 border-2 rounded-md" type="text" placeholder="2, 3, 75, etc." />
-				<button class="why" type="submit">Is it even?</button>
-			</form>
+			<HomeInput />
 		</div>
 	</main>
 </Base>
-
-<style>
-	button.why {
-		@apply py-3 pl-12 pr-5 rounded-r-md text-white -ml-10;
-
-		--gradient-start: 75%;
-		background-image: linear-gradient(-56deg, rgb(147 51 234) var(--gradient-start), transparent var(--gradient-start));
-	}
-</style>
