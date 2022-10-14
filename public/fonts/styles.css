@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'HK Grotesk';
+  src:
+    url(./HKGrotesk/WEB/HKGrotesk-Regular.woff2)
+    url(./HKGrotesk/TTF/HKGrotesk-Regular.ttf)
+    url(./HKGrotesk/OTF/HKGrotesk-Regular.otf);
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src:
+    url(./HKGrotesk/WEB/HKGrotesk-Light.woff2),
+    url(./HKGrotesk/TTF/HKGrotesk-Light.ttf),
+    url(./HKGrotesk/OTF/HKGrotesk-Light.otf);
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src:
+    url(./HKGrotesk/WEB/HKGrotesk-Bold.woff2),
+    url(./HKGrotesk/TTF/HKGrotesk-Bold.ttf),
+    url(./HKGrotesk/OTF/HKGrotesk-Bold.otf);
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src:
+    url(./HKGrotesk/WEB/HKGrotesk-Italic.woff2),
+    url(./HKGrotesk/TTF/HKGrotesk-Italic.ttf),
+    url(./HKGrotesk/OTF/HKGrotesk-Italic.otf);
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src:
+    url(./HKGrotesk/WEB/HKGrotesk-BoldItalic.woff2),
+    url(./HKGrotesk/TTF/HKGrotesk-BoldItalic.ttf),
+    url(./HKGrotesk/OTF/HKGrotesk-BoldItalic.otf);
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

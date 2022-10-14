@@ -1,6 +1,5 @@
 ---
 import '@fontsource/chivo';
-import '@fontsource/atkinson-hyperlegible';
 ---
 
 <html lang="en">
@@ -9,9 +8,12 @@ import '@fontsource/atkinson-hyperlegible';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preload" href="/fonts/HKGrotesk/WEB/HKGrotesk-Regular.woff2" as="font" type="font/woff2" />
+		<link rel="preload" href="/fonts/HKGrotesk/WEB/HKGrotesk-Bold.woff2" as="font" type="font/woff2" />
+		<link rel="stylesheet" href="/fonts/styles.css" />
 		<title>Astro</title>
 	</head>
-	<body class="font-body">
+	<body class="font-body text-gray-900">
     <slot />
 	</body>
 </html>
