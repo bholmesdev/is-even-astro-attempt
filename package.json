@@ -11,12 +11,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^2.0.0",
     "@astrojs/solid-js": "^1.2.0",
     "@astrojs/tailwind": "^2.1.0",
     "@fontsource/atkinson-hyperlegible": "^4.5.10",
     "@fontsource/chivo": "^4.5.9",
+    "@solidjs/router": "^0.5.0",
     "astro": "^1.5.0",
+    "express": "^4.18.2",
     "solid-js": "^1.4.3",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.0.24",
+    "zod": "^3.19.1",
+    "zod-form-data": "^1.2.2"
   }
 }
