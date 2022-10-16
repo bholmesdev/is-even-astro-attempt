@@ -39,15 +39,15 @@ export default function Step1() {
           <LabelledInput name="email" type="text">
             Email
           </LabelledInput>
-          <Error message={errors.fieldErrors.email} />
+          <Error>{errors.fieldErrors.email}</Error>
           <LabelledInput name="password" type="password">
             Password
           </LabelledInput>
-          <Error message={errors.fieldErrors.password} />
+          <Error>{errors.fieldErrors.password}</Error>
           <LabelledInput name="confirmPassword" type="password">
             Confirm password
           </LabelledInput>
-          <Error message={errors.fieldErrors.confirmPassword} />
+          <Error>{errors.fieldErrors.confirmPassword}</Error>
         </div>
         <div class="flex">
           <NavLink.next class="flex-1" as="button" type="submit" />
@@ -57,11 +57,11 @@ export default function Step1() {
   );
 }
 
-function Error(props: { message: JSX.Element }) {
+function Error(props: { children: JSX.Element }) {
   return (
-    <Show when={props.message}>
+    <Show when={props.children}>
       <p class="bg-red-200 text-red-900 px-3 py-1 rounded-sm">
-        {props.message}
+        {props.children}
       </p>
     </Show>
   );
