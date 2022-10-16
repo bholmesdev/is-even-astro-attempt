@@ -1,6 +1,7 @@
 import { useNavigate } from "@solidjs/router";
 import { nanoid } from "nanoid";
-import { ComponentProps, createSignal, JSX, JSXElement, Show } from "solid-js";
+import { ComponentProps, JSX, Show } from "solid-js";
+import { createStore } from "solid-js/store";
 import { z } from "zod";
 import Form from "../../../components/Form";
 import { accountDetailsSchema } from "../_components/formSchemas";
@@ -8,8 +9,13 @@ import NavLink from "../_components/NavLink";
 
 type Errors = z.typeToFlattenedError<z.infer<typeof accountDetailsSchema>>;
 
+const initialErrors = {
+  fieldErrors: {},
+  formErrors: [],
+};
+
 export default function Step1() {
-  const [errors, setErrors] = createSignal<Errors | undefined>(undefined);
+  const [errors, setErrors] = createStore<Errors>(initialErrors);
   const navigate = useNavigate();
   return (
     <main>
@@ -20,7 +26,7 @@ export default function Step1() {
         validator={accountDetailsSchema}
         onValidated={(parsedResult) =>
           parsedResult.success
-            ? setErrors(undefined)
+            ? setErrors(initialErrors)
             : setErrors(parsedResult.error.flatten())
         }
         onSubmitted={(apiResponse) => {
@@ -30,19 +36,18 @@ export default function Step1() {
         }}
       >
         <div class="grid gap-8">
-          {JSON.stringify(errors(), null, 2)}
           <LabelledInput name="email" type="text">
             Email
           </LabelledInput>
-          <Error message={errors()?.fieldErrors.email} />
+          <Error message={errors.fieldErrors.email} />
           <LabelledInput name="password" type="password">
             Password
           </LabelledInput>
-          <Error message={errors()?.fieldErrors.password} />
+          <Error message={errors.fieldErrors.password} />
           <LabelledInput name="confirmPassword" type="password">
             Confirm password
           </LabelledInput>
-          <Error message={errors()?.fieldErrors.confirmPassword} />
+          <Error message={errors.fieldErrors.confirmPassword} />
         </div>
         <div class="flex">
           <NavLink.next class="flex-1" as="button" type="submit" />
