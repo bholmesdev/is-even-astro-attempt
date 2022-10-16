@@ -24,13 +24,14 @@ const NavLink = {
 export default NavLink;
 
 export const baseLinkStyles =
-  "py-2 px-5 flex items-center font-display uppercase text-white bg-purple-700 hover:bg-purple-500 focus:bg-purple-400 rounded-md transition-colors";
+  "py-2 px-5 flex items-center justify-center font-display uppercase text-white bg-purple-700 hover:bg-purple-500 focus:bg-purple-400 rounded-md transition-colors";
 
 function BaseLink(props: NavLinkProps) {
+  const cls = props.class ? `${props.class} ${baseLinkStyles}` : baseLinkStyles;
   if (props.as === "a") {
-    return <Link class={baseLinkStyles} {...props} />;
+    return <Link {...props} class={cls} />;
   } else {
-    return <button class={baseLinkStyles} {...props} />;
+    return <button {...props} class={cls} />;
   }
 }
 

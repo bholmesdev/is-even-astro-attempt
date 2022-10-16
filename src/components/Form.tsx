@@ -8,7 +8,9 @@ type FormProps<V extends FormDataSchema> = ComponentProps<"form"> & {
   validator: V;
   onValidated?: (
     parsedResult: z.SafeParseReturnType<z.infer<V>, z.infer<V>>
-  ) => any | void;
+  ) => void;
+  onSubmitted?: (apiResponse: Response) => void;
+  action: string;
 };
 
 export default function Form<V extends FormDataSchema>(props: FormProps<V>) {
@@ -25,7 +27,7 @@ export default function Form<V extends FormDataSchema>(props: FormProps<V>) {
             method: "post",
             body: new FormData(e.currentTarget),
           });
-          console.log(res.status);
+          props.onSubmitted?.(res);
         }
       }}
       {...props}
