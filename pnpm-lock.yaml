@@ -11,6 +11,7 @@ specifiers:
   express: ^4.18.2
   nanoid: ^4.0.0
   solid-js: ^1.4.3
+  solid-transition-group: ^0.0.11
   tailwindcss: ^3.0.24
   zod: ^3.19.1
   zod-form-data: ^1.2.2
@@ -26,6 +27,7 @@ dependencies:
   express: 4.18.2
   nanoid: 4.0.0
   solid-js: 1.5.7
+  solid-transition-group: 0.0.11_solid-js@1.5.7
   tailwindcss: 3.1.8
   zod: 3.19.1
   zod-form-data: 1.2.2_zod@3.19.1
@@ -3718,6 +3720,14 @@ packages:
     resolution: {integrity: sha512-L1UuyMuZZARAwzXo5NZDhE6yxc14aqNbVOUoGzvlcxRZo1Cm4ExhPV0diEfwDyiKG/igqNNLkNurHkXiI5sVEg==}
     dependencies:
       csstype: 3.1.1
+    dev: false
+
+  /solid-transition-group/0.0.11_solid-js@1.5.7:
+    resolution: {integrity: sha512-WcMhZvaQKAWfByVgtJuKwR2naXQHG1tJHDvqsC/EyNsoNWRkDu+9AWcwaUWW1kXZ24n17We0IIRe7z4G5dEYRw==}
+    peerDependencies:
+      solid-js: ^1.0.0
+    dependencies:
+      solid-js: 1.5.7
     dev: false
 
   /source-map-js/1.0.2:
