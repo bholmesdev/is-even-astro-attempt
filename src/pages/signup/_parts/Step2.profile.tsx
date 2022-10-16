@@ -1,3 +1,10 @@
+import NavLink from "../_components/NavLink";
+
 export default function Step2() {
-  return <p>Step 2</p>;
+  return (
+    <div>
+      <p>Step 2</p>
+      <NavLink.next as="a" href="/3" />
+    </div>
+  );
 }

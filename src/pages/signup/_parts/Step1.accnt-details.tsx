@@ -2,6 +2,7 @@ import { useNavigate } from "@solidjs/router";
 import { nanoid } from "nanoid";
 import { ComponentProps, JSX, Show } from "solid-js";
 import { createStore } from "solid-js/store";
+import { T } from "../../../components/Transitions";
 import { z } from "zod";
 import Form from "../../../components/Form";
 import { accountDetailsSchema } from "../_components/formSchemas";
@@ -59,11 +60,13 @@ export default function Step1() {
 
 function Error(props: { children: JSX.Element }) {
   return (
-    <Show when={props.children}>
-      <p class="bg-red-200 text-red-900 px-3 py-1 rounded-sm">
-        {props.children}
-      </p>
-    </Show>
+    <T.SlideFromTop>
+      <Show when={props.children}>
+        <p class="bg-red-200 text-red-900 px-3 py-1 rounded-sm">
+          {props.children}
+        </p>
+      </Show>
+    </T.SlideFromTop>
   );
 }
 
