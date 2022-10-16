@@ -3,9 +3,9 @@ import Step1 from "./Step1.accnt-details";
 import Step2 from "./Step2.pricing";
 import Banner from "./Banner";
 
-export default function theRealOfficialRouter() {
+export default function theRealOfficialRouter(props: { ssrRoute: string }) {
   return (
-    <Router base="/signup">
+    <Router base="/signup" url={props.ssrRoute}>
       <Banner />
       <Routes>
         <Route path="/1" component={Step1} />
