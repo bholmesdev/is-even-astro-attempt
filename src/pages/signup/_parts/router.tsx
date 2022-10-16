@@ -4,8 +4,7 @@ import Step2 from "./Step2.profile";
 import Step3 from "./Step3.pricing-plan";
 import Steps from "../_components/Steps";
 import type { JSX } from "solid-js";
-import { Transition, TransitionGroup } from "solid-transition-group";
-import { T } from "../../../components/Transitions";
+import { Transition } from "solid-transition-group";
 
 export default function theRealOfficialRouter(props: {
   ssrRoute: string;
@@ -40,21 +39,5 @@ export default function theRealOfficialRouter(props: {
         </Routes>
       </Transition>
     </Router>
-  );
-}
-
-// Source of this jank: https://codesandbox.io/s/solid-router-transitions-demo-b47ckq?file=/index.tsx:235-270
-function AnimationWrapper(props: { children: JSX.Element }) {
-  return (
-    <Route
-      path="/"
-      component={() => (
-        <T.SlideFromTop>
-          <Outlet />
-        </T.SlideFromTop>
-      )}
-    >
-      {props.children}
-    </Route>
   );
 }
