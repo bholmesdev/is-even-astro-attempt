@@ -36,7 +36,7 @@ function Bubble({
       ></div>
       <h2
         classList={{ "text-purple-700": current }}
-        class="text-center text-sm w-20"
+        class="text-center text-sm w-28"
       >
         {label}
       </h2>

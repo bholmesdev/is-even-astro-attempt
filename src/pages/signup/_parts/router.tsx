@@ -11,7 +11,7 @@ export default function theRealOfficialRouter(props: {
 }) {
   return (
     <Router base="/signup" url={props.ssrRoute}>
-      <header class="mb-12">
+      <header class="mb-16">
         {props.headerChildren}
         <Steps />
       </header>

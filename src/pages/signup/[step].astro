@@ -8,11 +8,11 @@ import Router from './_parts/router';
   <div class="p-4 heading">
     <Logo />
   </div>
-  <main class="max-w-prose m-auto bg-white p-4 pb-12 sm:pb-16 sm:p-8 rounded-md">
+  <div class="max-w-form m-auto bg-white p-4 pb-12 sm:pb-16 sm:p-12 mb-16 rounded-md">
     <Router client:load ssrRoute={Astro.url.pathname}>
-      <h1 slot="headerChildren" class="text-center text-2xl mb-12">How can we tell you about your number,<br/>when we don't <span class="text-purple-700 font-bold">even</span> know you!</h1>
+      <h1 slot="headerChildren" class="text-center text-xl mb-16">How can we tell you about your number,<br/>when we don't <span class="text-purple-700 font-bold">even</span> know you!</h1>
     </Router>
-  </main>
+  </div>
   <div class="bg-slate-100 fixed -z-10 inset-0 top-1/4"></div>
 </Base>
 
