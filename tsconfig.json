@@ -10,7 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "solid-js",
+    "strictNullChecks": true
   },
   "extends": "astro/tsconfigs/base"
 }
