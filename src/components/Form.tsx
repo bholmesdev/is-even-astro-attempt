@@ -24,7 +24,7 @@ export default function Form<V extends FormDataSchema>(props: FormProps<V>) {
         props.onValidated?.(parsedForm);
         if (parsedForm.success) {
           const res = await fetch(props.action ?? window.location.href, {
-            method: "post",
+            method: props.method ?? "post",
             body: new FormData(e.currentTarget),
           });
           props.onSubmitted?.(res);
