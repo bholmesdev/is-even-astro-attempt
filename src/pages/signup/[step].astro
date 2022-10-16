@@ -5,18 +5,19 @@ import Router from './_parts/router';
 ---
 
 <Base>
-  <header class="p-4">
+  <div class="p-4 heading">
     <Logo />
-  </header>
-  <main class="max-w-prose m-auto bg-white p-5">
-    <h1 class="text-center text-2xl mb-12">How can we tell you about your number,<br/>when we don't <span class="text-purple-700 font-bold">even</span> know you!</h1>
-    <Router client:load ssrRoute={Astro.url.pathname} />
+  </div>
+  <main class="max-w-prose m-auto bg-white p-4 pb-12 sm:pb-16 sm:p-8 rounded-md">
+    <Router client:load ssrRoute={Astro.url.pathname}>
+      <h1 slot="headerChildren" class="text-center text-2xl mb-12">How can we tell you about your number,<br/>when we don't <span class="text-purple-700 font-bold">even</span> know you!</h1>
+    </Router>
   </main>
   <div class="bg-slate-100 fixed -z-10 inset-0 top-1/4"></div>
 </Base>
 
 <style>
-  header :global(svg) {
+  .heading :global(svg) {
     height: 3rem;
     width: auto;
   }
