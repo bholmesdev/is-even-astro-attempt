@@ -1,30 +1,59 @@
 import { nanoid } from "nanoid";
-import type { ComponentProps, JSX } from "solid-js";
+import { ComponentProps, createSignal, JSX, JSXElement, Show } from "solid-js";
+import { z } from "zod";
+import Form from "../../../components/Form";
+import { accountDetailsSchema } from "../_components/formSchemas";
 import NavLink from "../_components/NavLink";
 import StepWrapper from "../_components/StepWrapper";
 
+type Errors = z.typeToFlattenedError<z.infer<typeof accountDetailsSchema>>;
+
 export default function Step1() {
+  const [errors, setErrors] = createSignal<Errors | undefined>(undefined);
   return (
-    <StepWrapper
-      main={
-        <form class="grid gap-8">
-          <LabelledInput name="email" type="text">
-            Email
-          </LabelledInput>
-          <LabelledInput name="password" type="password">
-            Password
-          </LabelledInput>
-          <LabelledInput name="confirm-password" type="password">
-            Confirm password
-          </LabelledInput>
-        </form>
+    <Form
+      validator={accountDetailsSchema}
+      onValidated={(parsedResult) =>
+        parsedResult.success
+          ? setErrors(undefined)
+          : setErrors(parsedResult.error.flatten())
       }
-      lowerNav={
-        <>
-          <NavLink.next href="/2" />
-        </>
-      }
-    />
+    >
+      <StepWrapper
+        main={
+          <div class="grid gap-8">
+            {JSON.stringify(errors(), null, 2)}
+            <LabelledInput name="email" type="text">
+              Email
+            </LabelledInput>
+            <Error message={errors()?.fieldErrors.email} />
+            <LabelledInput name="password" type="password">
+              Password
+            </LabelledInput>
+            <Error message={errors()?.fieldErrors.password} />
+            <LabelledInput name="confirmPassword" type="password">
+              Confirm password
+            </LabelledInput>
+            <Error message={errors()?.fieldErrors.confirmPassword} />
+          </div>
+        }
+        lowerNav={
+          <>
+            <NavLink.next as="button" type="submit" />
+          </>
+        }
+      />
+    </Form>
+  );
+}
+
+function Error(props: { message: JSX.Element }) {
+  return (
+    <Show when={props.message}>
+      <p class="bg-red-200 text-red-900 px-3 py-1 rounded-sm">
+        {props.message}
+      </p>
+    </Show>
   );
 }
 

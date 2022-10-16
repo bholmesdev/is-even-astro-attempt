@@ -1,7 +1,24 @@
 ---
 import Logo from "../../components/Logo.astro";
 import Base from "../../layouts/Base.astro";
+import { accountDetailsSchema } from "./_components/formSchemas";
 import Router from './_parts/router';
+
+if (Astro.request.method === 'POST') {
+  const result = accountDetailsSchema.safeParse(await Astro.request.formData());
+  if (result.success) {
+    console.log(result);
+    return new Response(null, { status: 200 });
+  } else {
+    return new Response(
+      JSON.stringify({
+        message: "Data is mal-form-ed (hehe)",
+        error: result.error,
+      }),
+      { status: 400 }
+    );
+  }
+}
 ---
 
 <Base>

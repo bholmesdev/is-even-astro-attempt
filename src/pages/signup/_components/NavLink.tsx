@@ -1,17 +1,20 @@
 import { AnchorProps, Link } from "@solidjs/router";
-import type { JSX } from "solid-js";
+import type { ComponentProps, JSX } from "solid-js";
 
-type NavLinkProps = { children?: JSX.Element } & AnchorProps;
+type NavLinkProps = { children?: JSX.Element } & (
+  | ({ as: "a" } & AnchorProps)
+  | ({ as: "button" } & ComponentProps<"button">)
+);
 
 const NavLink = {
-  next: ({ children, ...anchorProps }: NavLinkProps) => (
-    <BaseLink {...anchorProps}>
+  next: ({ children, ...baseProps }: NavLinkProps) => (
+    <BaseLink {...baseProps}>
       {children ?? "Next"}
       <IconRight />
     </BaseLink>
   ),
-  previous: ({ children, ...anchorProps }: NavLinkProps) => (
-    <BaseLink {...anchorProps}>
+  previous: ({ children, ...baseProps }: NavLinkProps) => (
+    <BaseLink {...baseProps}>
       <IconLeft />
       {children ?? "Previous"}
     </BaseLink>
@@ -20,13 +23,15 @@ const NavLink = {
 
 export default NavLink;
 
+export const baseLinkStyles =
+  "py-2 px-5 flex items-center font-display uppercase text-white bg-purple-700 hover:bg-purple-500 focus:bg-purple-400 rounded-md transition-colors";
+
 function BaseLink(props: NavLinkProps) {
-  return (
-    <Link
-      class="py-2 px-5 flex items-center font-display uppercase text-white bg-purple-700 hover:bg-purple-500 focus:bg-purple-400 rounded-md transition-colors"
-      {...props}
-    />
-  );
+  if (props.as === "a") {
+    return <Link class={baseLinkStyles} {...props} />;
+  } else {
+    return <button class={baseLinkStyles} {...props} />;
+  }
 }
 
 function IconRight() {
